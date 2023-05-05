@@ -58,18 +58,10 @@ describe('Componente <Pokedex.js />', () => {
     expect(buttonsFilter).toHaveLength(2);
     expect(buttonsFilter[0]).toHaveTextContent(/electric/i);
     expect(buttonsFilter[1]).toHaveTextContent(/fire/i);
+    userEvent.click(buttonsFilter[1]);
+    const pokeType = screen.getByTestId('pokemon-type');
+    expect(pokeType).toHaveTextContent('Fire');
   });
-
-  // it.only('A Pokédex não tem os botões de filtro sem os pokémons', () => {
-  //   renderWithRouter(<Pokedex
-  //     pokemonList={ [pokemonList
-  //       .filter((poke, index) => index < 2 || index === 6)
-  //       .map(({ id }) => id)] }
-  //     isPokemonFavoriteById={ { 25: true, 4: true, 6: true } }
-  //   />);
-  //   const buttonsFilter = screen.getAllByTestId('pokemon-type-button');
-  //   expect(buttonsFilter).not.toBeDefined();
-  // });
 
   it('A Pokédex contém um botão para resetar o filtro', () => {
     renderWithRouter(<Pokedex

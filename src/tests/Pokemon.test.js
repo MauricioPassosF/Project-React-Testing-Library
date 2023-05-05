@@ -45,6 +45,6 @@ describe('Componente <Pokemon.js />', () => {
       pokemon={ pokemonList[0] }
       isFavorite={ false }
     />);
-    expect(screen.getByRole('img', { name: 'Pikachu is marked as favorite' })).toBeUndefined();
+    expect(screen.queryByRole('img', { name: 'Pikachu is marked as favorite' })).not.toBeInTheDocument();
   });
 });
